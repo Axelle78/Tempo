@@ -1,0 +1,204 @@
+type: horizontal-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_couleur_actuelle
+            state: Rouge
+        card:
+          type: markdown
+          content: >-
+            Aujourd'hui  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/panneau.png"
+            width=30% height=10% > <br/> {{
+            (states('sensor.edf_tempo_prix_actuel')| float / 100 )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -4px;
+               font-size: 16px;
+               color : #E7E7E7;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background: url('https://raw.githubusercontent.com/Axelle78/test/master/rouge.png');
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_couleur_actuelle
+            state: Blanc
+        card:
+          type: markdown
+          content: >-
+            Aujourd'hui  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/OK.png"
+            width=30% height=10% > <br/> {{
+            (states('sensor.edf_tempo_prix_actuel')| float / 100 )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #000000;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background: url('https://raw.githubusercontent.com/Axelle78/test/master/blanc.png');
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_couleur_actuelle
+            state: Bleu
+        card:
+          type: markdown
+          content: >-
+            Aujourd'hui  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/OK.png"
+            width=30% height=10% > <br/> {{
+            (states('sensor.edf_tempo_prix_actuel')| float / 100 )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #E7E7E7;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background: url('https://raw.githubusercontent.com/Axelle78/test/master/bleu.png');
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_couleur_actuelle
+            state: inconnu
+        card:
+          type: markdown
+          content: >-
+            Aujourd'hui  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/interrog.png"
+            width=30% height=10% > <br/> {{
+            (states('sensor.edf_tempo_prix_actuel')| float / 100 )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #E7E7E7;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+  - type: horizontal-stack
+    cards:
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_prochaine_couleur
+            state: Rouge
+        card:
+          type: markdown
+          content: >-
+            Demain  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/panneau.png"
+            width=25% height=10% > <br/> HP  {{
+            (states('input_number.tarif_edf_tempo_rouge_hp')| float / 1
+            )|round(3)}} € <br/> HC {{
+            (states('input_number.tarif_edf_tempo_rouge_hc')| float / 1
+            )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #E7E7E7;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background: url('https://raw.githubusercontent.com/Axelle78/test/master/rouge.png');
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_prochaine_couleur
+            state: Blanc
+        card:
+          type: markdown
+          content: >-
+            Demain  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/OK.png"
+            width=25% height=10% > <br/> HP  {{
+            (states('input_number.tarif_edf_tempo_blanc_hp')| float / 1
+            )|round(3)}} € <br/> HC {{
+            (states('input_number.tarif_edf_tempo_blanc_hc')| float / 1
+            )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #000000;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background: url('https://raw.githubusercontent.com/Axelle78/test/master/blanc.png');
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_prochaine_couleur
+            state: Bleu
+        card:
+          type: markdown
+          content: >-
+            Demain  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/OK.png"
+            width=25% height=10% > <br/> HP  {{
+            (states('input_number.tarif_edf_tempo_bleu_hp')| float / 1
+            )|round(3)}} € <br/> HC {{
+            (states('input_number.tarif_edf_tempo_bleu_hc')| float / 1
+            )|round(3)}} €
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #E7E7E7;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background: url('https://raw.githubusercontent.com/Axelle78/test/master/bleu.png');
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.rte_tempo_prochaine_couleur
+            state: inconnu
+        card:
+          type: markdown
+          content: >-
+            Demain  <br/> <img
+            src="https://raw.githubusercontent.com/Axelle78/test/master/interrog.png"
+            width=30% height=10% > <br/> 
+          card_mod:
+            style: |
+              ha-card {
+               margin-bottom: -10px;
+               font-size: 16px;
+               color : #000000;
+               text-align: center;
+               --mdc-icon-size: 20px;
+               background-size: 100% 400px;
+               border-radius:10px;
+              }
