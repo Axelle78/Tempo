@@ -1,0 +1,66 @@
+type: custom:power-distribution-card
+title: Consommation courante
+entities:
+  - decimals: '0'
+    display_abs: true
+    name: solar
+    unit_of_display: W
+    icon: mdi:solar-power
+    producer: true
+    entity: sensor.envoy_122250004672_current_power_production
+    preset: solar
+    icon_color:
+      bigger: green
+      equal: gray
+      smaller: red
+  - decimals: '0'
+    display_abs: true
+    name: Export
+    unit_of_display: W
+    icon: mdi:lightning-bolt-outline
+    producer: true
+    entity: sensor.energy_exporting
+    preset: producer
+    icon_color:
+      bigger: green
+      equal: gray
+      smaller: red
+    calc_excluded: true
+  - decimals: '0'
+    display_abs: true
+    name: conso
+    unit_of_display: W
+    consumer: true
+    icon: mdi:home
+    entity: sensor.envoy_122250004672_current_power_consumption
+    preset: consumer
+    icon_color:
+      bigger: red
+      equal: green
+      smaller: red
+    invert_value: true
+  - decimals: '0'
+    display_abs: true
+    name: Import
+    unit_of_display: W
+    icon: mdi:transmission-tower
+    entity: sensor.energy_importing
+    preset: grid
+    icon_color:
+      bigger: red
+      equal: gray
+      smaller: red
+    invert_value: true
+center:
+  type: bars
+  content:
+    - preset: ratio
+      name: use
+      bar_color: green
+      bar_bg_color: ''
+      entity: ''
+      invert_value: false
+    - preset: autarky
+      name: indep
+      bar_color: blue
+animation: flash
