@@ -1,0 +1,53 @@
+type: custom:apexcharts-card
+stacked: true
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Suivi Couts électricité (abonnement non inclus)
+apex_config:
+  legend:
+    show: false
+  chart:
+    height: 200px
+series:
+  - entity: sensor.cout_tempo_jour_blanc_hc
+    type: column
+    color: rgb(170,170,170)
+    group_by:
+      func: last
+      duration: 1d
+  - entity: sensor.cout_tempo_jour_blanc_hp
+    type: column
+    color: rgb(128,128,128)
+    group_by:
+      func: last
+      duration: 1d
+    show:
+      datalabels: total
+  - entity: sensor.cout_tempo_jour_rouge_hp
+    type: column
+    color: rgb(255,0,0)
+    group_by:
+      func: last
+      duration: 1d
+    show:
+      datalabels: total
+  - entity: sensor.cout_tempo_jour_rouge_hc
+    type: column
+    color: rgb(255,141,126)
+    group_by:
+      func: last
+      duration: 1d
+  - entity: sensor.cout_tempo_jour_bleu_hp
+    type: column
+    color: rgb(63,72,204)
+    group_by:
+      func: last
+      duration: 1d
+    show:
+      datalabels: total
+  - entity: sensor.cout_tempo_jour_bleu_hc
+    type: column
+    color: rgb(113,155,255)
