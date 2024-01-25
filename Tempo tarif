@@ -1,0 +1,71 @@
+type: horizontal-stack
+cards:
+  - type: markdown
+    content: >-
+      <b>Rouge</b>  <br/> <br/>{{
+      states('sensor.rte_tempo_cycle_jours_restants_rouge') }} / {{ (
+      (states('sensor.rte_tempo_cycle_jours_restants_rouge') | float(default=0)
+      ) + (states('sensor.rte_tempo_cycle_jours_deja_places_rouge') |
+      float(default=0) ) ) | round(0) }}
+         HP  {{
+            (states('input_number.tarif_edf_tempo_rouge_hp')| float / 1
+            )|round(3)}} € <br/> HC {{
+            (states('input_number.tarif_edf_tempo_rouge_hc')| float / 1
+            )|round(3)}} €
+    card_mod:
+      style: |
+        ha-card {
+         margin-bottom: -10px;
+         font-size: 16px;
+         color : #000000;
+         text-align: center;
+         --mdc-icon-size: 18px;
+         background: url('https://raw.githubusercontent.com/Axelle78/test/master/rouge.png');
+         background-size: 100% 400px;
+         border-radius:5px;
+        }
+  - type: markdown
+    content: >-
+      <b>Blanc</b>  <br/> <br/>{{
+      states('sensor.rte_tempo_cycle_jours_restants_blanc') }} / {{ (
+      (states('sensor.rte_tempo_cycle_jours_restants_blanc') | float(default=0)
+      ) + (states('sensor.rte_tempo_cycle_jours_deja_places_blanc') |
+      float(default=0) ) ) | round(0) }}
+         HP  {{
+            (states('input_number.tarif_edf_tempo_blanc_hp')| float / 1
+            )|round(3)}} € <br/> HC {{
+            (states('input_number.tarif_edf_tempo_blanc_hc')| float / 1
+            )|round(3)}} €
+    card_mod:
+      style: |
+        ha-card {
+         margin-bottom: -10px;
+         font-size: 16px;
+         color : #000000;
+         text-align: center;
+         --mdc-icon-size: 18px;
+         background: url('https://raw.githubusercontent.com/Axelle78/test/master/blanc.png');
+         background-size: 100% 400px;
+         border-radius:5px;
+        }
+  - type: markdown
+    content: >-
+      <b>Bleu</b>  <br/> <br/>{{
+      states('sensor.rte_tempo_cycle_jours_restants_bleu') }} / {{ (
+      (states('sensor.rte_tempo_cycle_jours_restants_bleu') | float(default=0) )
+      + (states('sensor.rte_tempo_cycle_jours_deja_places_bleu') |
+      float(default=0) ) ) | round(0) }}
+         HP  {{
+            (states('input_number.tarif_edf_tempo_bleu_hp')| float / 1
+            )|round(3)}} € <br/> HC {{
+            (states('input_number.tarif_edf_tempo_bleu_hc')| float / 1
+            )|round(3)}} €
+    card_mod:
+      style: |
+        ha-card {
+         margin-bottom: -10px;
+         font-size: 16px;
+         color : #E7E7E7;
+         text-align: center;
+         --mdc-icon-size: 18px;
+         background: url('https://raw.githubusercontent.com/Axelle78/test/master/bleu.png');
